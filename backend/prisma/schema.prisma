@@ -22,11 +22,12 @@ model User {
 }
 
 model Post {
-  id          String   @id @default(cuid())
-  title       String   @unique
-  content     String
-  slug        String   @unique
-  publishedOn DateTime @default(now())
-  author      User     @relation(fields: [userId], references: [id])
-  userId      String
+  id           String   @id @default(cuid())
+  thumbnailUrl String?
+  title        String   @unique
+  content      String
+  slug         String   @unique
+  publishedOn  DateTime @default(now())
+  author       User     @relation(fields: [userId], references: [id])
+  userId       String
 }

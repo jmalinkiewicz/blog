@@ -29,7 +29,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { title, content, userId } = req.body;
+    const { thumbnailUrl, title, content, userId } = req.body;
 
     const slug = processString(title);
 
@@ -37,6 +37,7 @@ router.post(
     try {
       post = await prisma.post.create({
         data: {
+          thumbnailUrl,
           title,
           content,
           userId,
@@ -102,8 +103,14 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
+    let { thumbnailUrl, title, content, userId } = req.body;
     const { id } = req.params;
-    const { title, content, userId } = req.body;
+
+    const slug = processString(title);
+
+    if (!thumbnailUrl) {
+      thumbnailUrl = null;
+    }
 
     let post;
     try {
@@ -112,14 +119,22 @@ router.put(
           id,
         },
         data: {
+          thumbnailUrl,
           title,
           content,
           userId,
+          slug,
         },
       });
     } catch (error) {
-      console.log(error);
-      return res.status(500).json({ error: "Internal server error" });
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        switch (error.code) {
+          case "P2025":
+            return res
+              .status(404)
+              .json({ error: "Record to edit does not exist" });
+        }
+      }
     }
 
     return res.json({

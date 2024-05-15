@@ -12,6 +12,12 @@ const loginSchema = {
 };
 
 const createPostSchema = {
+  thumbnailUrl: {
+    optional: true,
+    isString: true,
+    isURL: true,
+    errorMessage: "ThumbnailUrl must be a url",
+  },
   title: {
     escape: true,
     trim: true,
@@ -28,6 +34,12 @@ const createPostSchema = {
 };
 
 const editPostSchema = {
+  thumbnailUrl: {
+    optional: true,
+    isString: true,
+    isURL: true,
+    errorMessage: "ThumbnailUrl must be a url",
+  },
   title: {
     escape: true,
     isString: { errorMessage: "Title must be a string" },
