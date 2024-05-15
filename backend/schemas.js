@@ -1,15 +1,13 @@
 const loginSchema = {
   username: {
     trim: true,
-    isString: true,
-    notEmpty: true,
-    errorMessage: "Username can't be empty",
+    isString: { errorMessage: "Username must be a string" },
+    notEmpty: { errorMessage: "Username can't be empty" },
   },
   password: {
     trim: true,
-    isString: true,
-    notEmpty: true,
-    errorMessage: "Password can't be empty",
+    isString: { errorMessage: "Password must be a string" },
+    notEmpty: { errorMessage: "Password can't be empty" },
   },
 };
 
@@ -30,21 +28,15 @@ const createPostSchema = {
 };
 
 const editPostSchema = {
-  query: {
-    trim: true,
-    notEmpty: true,
-  },
   title: {
     escape: true,
-    isString: true,
-    notEmpty: false,
-    errorMessage: "Title must be a string",
+    isString: { errorMessage: "Title must be a string" },
+    notEmpty: { errorMessage: "Title can't be empty" },
   },
   content: {
     escape: true,
-    isString: true,
-    notEmpty: false,
-    errorMessage: "Content must be a string",
+    isString: { errorMessage: "Content must be a string" },
+    notEmpty: { errorMessage: "Content can't be empty" },
   },
 };
 
