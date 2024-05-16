@@ -25,6 +25,7 @@ model Post {
   id           String   @id @default(cuid())
   thumbnailUrl String?
   title        String   @unique
+  description  String
   content      String
   slug         String   @unique
   publishedOn  DateTime @default(now())

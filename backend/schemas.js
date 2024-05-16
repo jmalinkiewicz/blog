@@ -23,6 +23,12 @@ const createPostSchema = {
     isString: { errorMessage: "Title must be a string" },
     notEmpty: { errorMessage: "Title can't be empty" },
   },
+  description: {
+    escape: true,
+    trim: true,
+    isString: { errorMessage: "Description must be a string" },
+    notEmpty: { errorMessage: "Description can't be empty" },
+  },
   content: {
     escape: true,
     isString: { errorMessage: "Content must be a string" },
@@ -41,6 +47,12 @@ const editPostSchema = {
     escape: true,
     isString: { errorMessage: "Title must be a string" },
     notEmpty: { errorMessage: "Title can't be empty" },
+  },
+  description: {
+    escape: true,
+    trim: true,
+    isString: { errorMessage: "Description must be a string" },
+    notEmpty: { errorMessage: "Description can't be empty" },
   },
   content: {
     escape: true,

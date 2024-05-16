@@ -29,7 +29,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { thumbnailUrl, title, content, userId } = req.body;
+    const { thumbnailUrl, title, description, content, userId } = req.body;
 
     const slug = processString(title);
 
@@ -39,6 +39,7 @@ router.post(
         data: {
           thumbnailUrl,
           title,
+          description,
           content,
           userId,
           slug,
@@ -103,7 +104,7 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    let { thumbnailUrl, title, content, userId } = req.body;
+    let { thumbnailUrl, title, description, content, userId } = req.body;
     const { id } = req.params;
 
     const slug = processString(title);
@@ -121,6 +122,7 @@ router.put(
         data: {
           thumbnailUrl,
           title,
+          description,
           content,
           userId,
           slug,
