@@ -29,7 +29,8 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { thumbnailUrl, title, description, content, userId } = req.body;
+    const { thumbnailUrl, title, description, content, userId, tags } =
+      req.body;
 
     const slug = processString(title);
 
@@ -43,6 +44,7 @@ router.post(
           content,
           userId,
           slug,
+          tags,
         },
       });
     } catch (error) {
@@ -52,6 +54,8 @@ router.post(
             return res
               .status(400)
               .json({ error: "Title and slug must be unique" });
+          case "P2003":
+            return res.status(400).json({ error: "User doesn't exist" });
         }
       }
     }
@@ -104,7 +108,7 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    let { thumbnailUrl, title, description, content, userId } = req.body;
+    let { thumbnailUrl, title, description, content, userId, tags } = req.body;
     const { id } = req.params;
 
     const slug = processString(title);
@@ -126,6 +130,7 @@ router.put(
           content,
           userId,
           slug,
+          tags,
         },
       });
     } catch (error) {
@@ -135,6 +140,8 @@ router.put(
             return res
               .status(404)
               .json({ error: "Record to edit does not exist" });
+          case "P2003":
+            return res.status(400).json({ error: "User doesn't exist" });
         }
       }
     }

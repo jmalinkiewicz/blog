@@ -1,3 +1,13 @@
+const allowedTags = [
+  "showsMovies",
+  "gaming",
+  "tech",
+  "books",
+  "food",
+  "life",
+  "travel",
+]; // Add more tags as needed
+
 const loginSchema = {
   username: {
     trim: true,
@@ -34,6 +44,24 @@ const createPostSchema = {
     isString: { errorMessage: "Content must be a string" },
     notEmpty: { errorMessage: "Content can't be empty" },
   },
+  tags: {
+    isArray: {
+      options: {
+        min: 1,
+      },
+    },
+    custom: {
+      options: (tags) => {
+        const uniqueTags = [...new Set(tags)];
+        return (
+          uniqueTags.length === tags.length &&
+          uniqueTags.every((tag) => allowedTags.includes(tag))
+        );
+      },
+      errorMessage:
+        "One or more tags are not valid. Please use only predefined tags and do not use the same tag twice.",
+    },
+  },
 };
 
 const editPostSchema = {
@@ -58,6 +86,24 @@ const editPostSchema = {
     escape: true,
     isString: { errorMessage: "Content must be a string" },
     notEmpty: { errorMessage: "Content can't be empty" },
+  },
+  tags: {
+    isArray: {
+      options: {
+        min: 1,
+      },
+    },
+    custom: {
+      options: (tags) => {
+        const uniqueTags = [...new Set(tags)];
+        return (
+          uniqueTags.length === tags.length &&
+          uniqueTags.every((tag) => allowedTags.includes(tag))
+        );
+      },
+      errorMessage:
+        "One or more tags are not valid. Please use only predefined tags and do not use the same tag twice.",
+    },
   },
 };
 

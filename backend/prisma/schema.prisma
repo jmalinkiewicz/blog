@@ -31,4 +31,15 @@ model Post {
   publishedOn  DateTime @default(now())
   author       User     @relation(fields: [userId], references: [id])
   userId       String
+  tags         Tag[]
+}
+
+enum Tag {
+  showsMovies
+  gaming
+  tech
+  books
+  food
+  life
+  travel
 }
