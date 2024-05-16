@@ -29,8 +29,16 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { thumbnailUrl, title, description, content, userId, tags } =
-      req.body;
+    const {
+      thumbnailUrl,
+      title,
+      description,
+      content,
+      userId,
+      tags,
+      metaTitle,
+      metaDescription,
+    } = req.body;
 
     const slug = processString(title);
 
@@ -45,6 +53,8 @@ router.post(
           userId,
           slug,
           tags,
+          metaTitle,
+          metaDescription,
         },
       });
     } catch (error) {
@@ -108,7 +118,16 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    let { thumbnailUrl, title, description, content, userId, tags } = req.body;
+    let {
+      thumbnailUrl,
+      title,
+      description,
+      content,
+      userId,
+      tags,
+      metaTitle,
+      metaDescription,
+    } = req.body;
     const { id } = req.params;
 
     const slug = processString(title);
@@ -131,6 +150,8 @@ router.put(
           userId,
           slug,
           tags,
+          metaTitle,
+          metaDescription,
         },
       });
     } catch (error) {

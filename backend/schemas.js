@@ -62,6 +62,18 @@ const createPostSchema = {
         "One or more tags are not valid. Please use only predefined tags and do not use the same tag twice.",
     },
   },
+  metaTitle: {
+    escape: true,
+    trim: true,
+    isString: { errorMessage: "Meta title must be a string" },
+    notEmpty: { errorMessage: "Meta title can't be empty" },
+  },
+  metaDescription: {
+    escape: true,
+    trim: true,
+    isString: { errorMessage: "Meta description must be a string" },
+    notEmpty: { errorMessage: "Meta description can't be empty" },
+  },
 };
 
 const editPostSchema = {
@@ -104,6 +116,18 @@ const editPostSchema = {
       errorMessage:
         "One or more tags are not valid. Please use only predefined tags and do not use the same tag twice.",
     },
+  },
+  metaTitle: {
+    escape: true,
+    trim: true,
+    isString: { errorMessage: "Meta title must be a string" },
+    notEmpty: { errorMessage: "Meta title can't be empty" },
+  },
+  metaDescription: {
+    escape: true,
+    trim: true,
+    isString: { errorMessage: "Meta description must be a string" },
+    notEmpty: { errorMessage: "Meta description can't be empty" },
   },
 };
 
