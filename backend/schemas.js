@@ -14,30 +14,27 @@ const loginSchema = {
 const createPostSchema = {
   thumbnailUrl: {
     optional: true,
-    isString: true,
-    isURL: true,
-    errorMessage: "ThumbnailUrl must be a url",
+    isString: { errorMessage: "ThumbnailUrl must be a string" },
+    isURL: { errorMessage: "ThumbnailUrl must be a url" },
   },
   title: {
     escape: true,
     trim: true,
-    isString: true,
-    notEmpty: true,
-    errorMessage: "Title can't be empty",
+    isString: { errorMessage: "Title must be a string" },
+    notEmpty: { errorMessage: "Title can't be empty" },
   },
   content: {
     escape: true,
-    isString: true,
-    notEmpty: true,
-    errorMessage: "Content can't be empty",
+    isString: { errorMessage: "Content must be a string" },
+    notEmpty: { errorMessage: "Content can't be empty" },
   },
 };
 
 const editPostSchema = {
   thumbnailUrl: {
     optional: true,
-    isString: true,
-    isURL: true,
+    isString: { errorMessage: "ThumbnailUrl must be a string" },
+    isURL: { errorMessage: "ThumbnailUrl must be a url" },
     errorMessage: "ThumbnailUrl must be a url",
   },
   title: {
