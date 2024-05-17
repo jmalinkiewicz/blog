@@ -5,7 +5,7 @@ export default async function Home() {
   const posts = await getPosts();
 
   return (
-    <main className="mt-[98px] max-w-[550px] m-auto">
+    <main className="mt-[98px] max-w-[550px]">
       <div className="px-5 flex flex-col gap-12">
         {posts.map((post: any, key: any) => {
           return <Post data={post} key={key} />;

@@ -17,11 +17,12 @@ export default function Error({
 
   return (
     <div
-      className="grid place-items-center h-full w-full flex-grow
+      className="grid place-items-center p-4 max-w-[550px] w-full
     "
     >
       <div className="flex flex-col justify-center items-center gap-8">
         <h1 className="text-4xl font-bold">Something went wrong!</h1>
+        <p>Don't worry, this blog should be back soon</p>
         <div className="flex-grow-0">
           <Button
             variant="primary"
