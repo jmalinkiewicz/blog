@@ -10,7 +10,26 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   let posts;
   try {
-    posts = await prisma.post.findMany();
+    posts = await prisma.post.findMany({
+      select: {
+        id: true,
+        thumbnailUrl: true,
+        title: true,
+        description: true,
+        content: true,
+        publishedOn: true,
+        author: {
+          select: {
+            name: true,
+          },
+        },
+        userId: true,
+        slug: true,
+        tags: true,
+        metaTitle: true,
+        metaDescription: true,
+      },
+    });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Internal server error" });
