@@ -5,7 +5,7 @@ import LoginIcon from "../icons/login";
 
 export default function Nav() {
   return (
-    <nav className="fixed z-50 top-0 right-0 left-0 flex justify-between p-5 border-b-2 border-black/30">
+    <nav className="bg-honey-50 fixed z-50 top-0 right-0 left-0 flex justify-between p-5 border-b-2 border-black/30">
       <Link href="/">
         <HomeIcon />
       </Link>
