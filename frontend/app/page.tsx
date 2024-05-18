@@ -1,16 +1,17 @@
 import { getPosts } from "./lib/getData";
-import Post from "./ui/posts/post";
+import PostContainer from "./ui/posts/postContainer";
+import TagCarousel from "./ui/tags/tagCarousel";
 
 export default async function Home() {
   const posts = await getPosts();
 
   return (
-    <main className="mt-[98px] max-w-[550px]">
+    <main className="mt-32 max-w-[550px] overflow-hidden">
+      <div className="px-5 w-full">
+        <TagCarousel />
+      </div>
       <div className="px-5 flex flex-col gap-12">
-        {posts.map((post: any, key: any) => {
-          return <Post data={post} key={key} />;
-        })}
-        {/* {JSON.stringify(posts)} */}
+        <PostContainer posts={posts} />
       </div>
     </main>
   );

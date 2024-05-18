@@ -38,7 +38,7 @@ export default function Post({ data }: { data: PostType }) {
       </div>
       <div className="flex gap-2">
         {data.tags.map((tag: string, key: any) => {
-          return <Tag text={tag} key={key} />;
+          return <Tag key={key} >{tag}</Tag>;
         })}
       </div>
     </div>
