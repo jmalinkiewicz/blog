@@ -1,22 +1,9 @@
 import Image from "next/image";
 import Tag from "../tags/tag";
 import Link from "next/link";
+import { PostType } from "@/app/lib/definitions";
 
-type PostProps = {
-  id: string;
-  thumbnailUrl: string;
-  title: string;
-  description: string;
-  content: string;
-  slug: string;
-  publishedOn: string;
-  author: string;
-  tags: string[];
-  metaTitle: string;
-  metaDescription: string;
-};
-
-export default function Post({ data }: { data: any }) {
+export default function Post({ data }: { data: PostType }) {
   return (
     <div className="flex py-4 flex-col gap-4 border-b-[1px] border-shark-950/50">
       <div className="flex flex-col gap-3">
