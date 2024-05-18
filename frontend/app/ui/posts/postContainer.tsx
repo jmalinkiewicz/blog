@@ -14,9 +14,13 @@ export default function PostContainer({ posts }: { posts: any }) {
   });
   return (
     <>
-      {filteredPosts.map((post: PostType) => {
-        return <Post data={post} key={post.id} />;
-      })}
+      {filteredPosts.length > 0 ? (
+        filteredPosts.map((post: PostType) => {
+          return <Post data={post} key={post.id} />;
+        })
+      ) : (
+        <h1 className="text-3xl font-bold mt-12">No posts found. Sorry!</h1>
+      )}
     </>
   );
 }
