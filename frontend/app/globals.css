@@ -6,3 +6,18 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+@layer components {
+  .tag {
+    @apply select-none py-[4px] min-w-[65px] grid place-items-center text-[12px] border-[1px] border-shark-950/40 text-shark-950/60 rounded-full;
+  }
+  .tag-button {
+    @apply select-none py-[4px] min-w-[65px] grid place-items-center text-[12px] border-[1px] border-shark-950/80 text-shark-950/80 rounded-full;
+  }
+  .tag-active {
+    @apply bg-shark-900 text-white hover:bg-shark-700;
+  }
+  .tag-inactive {
+    @apply hover:bg-[#f0e8d8];
+  }
+}

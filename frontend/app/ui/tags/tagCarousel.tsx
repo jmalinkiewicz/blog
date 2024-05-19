@@ -60,7 +60,9 @@ export default function TagCarousel() {
               }}
               key={key}
             >
-              <Tag isActive={activeTags.includes(tag)}>{tag}</Tag>
+              <Tag isButton={true} isActive={activeTags.includes(tag)}>
+                {tag}
+              </Tag>
             </div>
           ))}
         </div>
