@@ -6,7 +6,7 @@ import AirplaneIcon from "../icons/airplane";
 
 export default function Menu() {
   return (
-    <div className="hidden lg:block sticky mt-32 py-6 px-4 bg-[#FDF3DB] self-start rounded-lg">
+    <div className="hidden lg:block sticky top-32 py-6 px-4 bg-[#FDF3DB] self-start rounded-lg">
       <nav className="flex flex-col gap-2 text-[14px] font-semibold">
         <Link href="/">
           <div className="flex gap-2 items-center hover:bg-honey-50 p-1">
