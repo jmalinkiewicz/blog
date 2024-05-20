@@ -31,7 +31,9 @@ export default function RootLayout({
           {children}
           <Menu />
         </div>
-        <Footer />
+        <div className="lg:mt-16">
+          <Footer />
+        </div>
       </body>
     </html>
   );
