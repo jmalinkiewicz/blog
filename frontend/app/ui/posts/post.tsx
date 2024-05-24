@@ -5,7 +5,7 @@ import { PostType } from "@/app/lib/definitions";
 
 export default function Post({ data }: { data: PostType }) {
   return (
-    <div className="flex py-4 flex-col gap-4 border-b-[1px] border-shark-950/50">
+    <div className="flex py-4 flex-col gap-4 border-b-[1px] border-shark-950/50 group">
       <div className="flex flex-col gap-3">
         {data.thumbnailUrl ? (
           <Link href={data.slug}>
@@ -27,7 +27,7 @@ export default function Post({ data }: { data: PostType }) {
               <h4>{data.author.name}</h4>
               <h4>April 10</h4>
             </div>
-            <h2 className="text-[22px] font-semibold">
+            <h2 className="text-[22px] font-semibold group-hover:text-shark-950/70">
               <Link href={data.slug}>{data.title}</Link>
             </h2>
           </div>
@@ -38,7 +38,7 @@ export default function Post({ data }: { data: PostType }) {
       </div>
       <div className="flex gap-2">
         {data.tags.map((tag: string, key: any) => {
-          return <Tag key={key} >{tag}</Tag>;
+          return <Tag key={key}>{tag}</Tag>;
         })}
       </div>
     </div>
