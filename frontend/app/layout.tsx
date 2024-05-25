@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "./ui/headers/nav";
 import Footer from "./ui/footers/footer";
 import Menu from "./ui/menus/menu";
+import Providers from "./providers";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -20,20 +21,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${montserrat.className} leading-[1.2] bg-honey-50 min-h-screen flex flex-col`}
+        className={`${montserrat.className} leading-[1.2] bg-honey-50 min-h-screen flex flex-col dark:bg-black dark:text-black`}
       >
-        <header>
-          <Nav />
-        </header>
-        <div className="flex-grow flex justify-center items-stretch gap-7">
-          {children}
-          <Menu />
-        </div>
-        <div className="lg:mt-16">
-          <Footer />
-        </div>
+        <Providers>
+          <header>
+            <Nav />
+          </header>
+          <div className="flex-grow flex justify-center items-stretch gap-7">
+            {children}
+            <Menu />
+          </div>
+          <div className="lg:mt-16">
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );
