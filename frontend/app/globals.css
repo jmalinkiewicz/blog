@@ -9,15 +9,15 @@
 
 @layer components {
   .tag {
-    @apply select-none py-[4px] min-w-[65px] grid place-items-center text-[12px] border-[1px] border-shark-950/40 text-shark-950/60 rounded-full;
+    @apply select-none py-[4px] min-w-[65px] grid place-items-center text-[12px] border-[1px] border-shark-950/40 text-shark-950/60 dark:border-white/40 dark:text-white/60 rounded-full;
   }
   .tag-button {
-    @apply select-none py-[4px] min-w-[65px] grid place-items-center text-[12px] border-[1px] border-shark-950/80 text-shark-950/80 rounded-full;
+    @apply select-none py-[4px] min-w-[65px] grid place-items-center text-[12px] border-[1px] border-shark-950/80 text-shark-950/80 dark:border-white/80 dark:text-white/80 rounded-full;
   }
   .tag-active {
-    @apply bg-shark-900 text-white hover:bg-shark-700;
+    @apply bg-shark-900 text-white dark:text-black dark:bg-white dark:hover:bg-white/85 hover:bg-shark-600;
   }
   .tag-inactive {
-    @apply hover:bg-[#f0e8d8];
+    @apply hover:bg-[#f0e8d8] dark:hover:bg-shark-800;
   }
 }

@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${montserrat.className} leading-[1.2] bg-honey-50 min-h-screen flex flex-col dark:bg-black dark:text-black`}
+        className={`${montserrat.className} leading-[1.2] bg-honey-50 min-h-screen flex flex-col dark:bg-shark-950 dark:text-white`}
       >
         <Providers>
           <header>

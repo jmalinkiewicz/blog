@@ -23,11 +23,11 @@ export default function Post({ data }: { data: PostType }) {
         )}
         <div className="flex flex-col gap-3">
           <div className="flex flex-col gap-2">
-            <div className="text-[12px] text-shark-500 flex justify-between">
+            <div className="text-[12px] text-shark-500 dark:text-shark-300 flex justify-between">
               <h4>{data.author.name}</h4>
               <h4>April 10</h4>
             </div>
-            <h2 className="text-[22px] font-semibold hover:text-shark-950/80">
+            <h2 className="text-[22px] font-semibold hover:text-shark-950/80 dark:hover:text-white/85">
               <Link href={data.slug}>{data.title}</Link>
             </h2>
           </div>

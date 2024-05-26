@@ -16,7 +16,7 @@ export default function Button({
   return (
     <button
       onClick={action}
-      className="text-white px-4 py-[5px] rounded bg-shark-950 hover:bg-shark-900"
+      className="text-white px-4 py-[5px] rounded bg-shark-950 dark:bg-white dark:text-black hover:bg-shark-900"
     >
       {children}
     </button>
