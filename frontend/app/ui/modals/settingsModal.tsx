@@ -12,25 +12,17 @@ export default function SettingsModal({
   isOpen: boolean;
   onClose: () => void;
 }) {
-  const [mounted, setMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
 
-  useEffect(() => {
-    setMounted(true);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
-
-  const theme = localStorage?.getItem("theme");
-
-  if (!mounted) return null;
+  let theme;
+  if (typeof window !== "undefined") {
+    theme = localStorage.getItem("theme");
+  }
 
   if (isOpen)
     return (
-      <div className="fixed z-[60] inset-0 bg-blue-500/50 flex justify-center items-center">
-        <div className="bg-honey-50 max-w-lg flex-grow px-8 py-5">
+      <div className="fixed z-[60] inset-0 bg-black/90 flex justify-center items-center">
+        <div className="bg-honey-50 max-w-lg flex-grow px-8 py-5 rounded-md">
           <h2 className=" text-2xl font-medium">
             Let's enhance your experience
           </h2>
