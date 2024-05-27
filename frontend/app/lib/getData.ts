@@ -17,3 +17,12 @@ export async function getPosts() {
 
   return data;
 }
+
+export async function getPost(slug: string) {
+  const res = await fetch("http://localhost:8000/api/posts/" + slug, {
+    cache: "no-cache",
+  });
+  const data = await res.json();
+
+  return data;
+}
