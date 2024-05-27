@@ -16,7 +16,6 @@ router.get("/", async (req, res) => {
         thumbnailUrl: true,
         title: true,
         description: true,
-        content: true,
         publishedOn: true,
         author: {
           select: {
@@ -26,8 +25,6 @@ router.get("/", async (req, res) => {
         userId: true,
         slug: true,
         tags: true,
-        metaTitle: true,
-        metaDescription: true,
       },
     });
   } catch (error) {
