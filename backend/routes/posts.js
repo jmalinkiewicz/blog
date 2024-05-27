@@ -190,4 +190,40 @@ router.put(
   }
 );
 
+router.get("/:slug", async (req, res) => {
+  const { slug } = req.params;
+
+  let post;
+  try {
+    post = await prisma.post.findUnique({
+      where: {
+        slug,
+      },
+      select: {
+        id: true,
+        thumbnailUrl: true,
+        title: true,
+        description: true,
+        publishedOn: true,
+        content: true,
+        author: {
+          select: {
+            name: true,
+          },
+        },
+        userId: true,
+        slug: true,
+        tags: true,
+        metaTitle: true,
+        metaDescription: true,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+
+  res.json(post);
+});
+
 exports.postsRouter = router;
