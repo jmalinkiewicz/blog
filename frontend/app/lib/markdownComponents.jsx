@@ -43,4 +43,13 @@ export const components = {
       </code>
     );
   },
+  blockquote(props) {
+    const { node, ...rest } = props;
+    return (
+      <blockquote
+        {...rest}
+        className="border-l-4 border-zinc-400 text-shark-600 pl-4"
+      ></blockquote>
+    );
+  },
 };
