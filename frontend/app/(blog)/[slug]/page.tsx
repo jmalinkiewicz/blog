@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
-import { PostType } from "../lib/definitions";
-import { getPost } from "../lib/getData";
+import { PostType } from "../../lib/definitions";
+import { getPost } from "@/app/lib/getData";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import React from "react";
-import { components } from "../lib/markdownComponents.jsx";
+import { components } from "../../lib/markdownComponents.jsx";
 
 export async function generateStaticParams() {
   const posts = await fetch("http://localhost:8000/api/posts").then((res) =>

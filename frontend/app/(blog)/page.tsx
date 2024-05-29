@@ -1,6 +1,6 @@
-import { getPosts } from "./lib/getData";
-import PostContainer from "./ui/posts/postContainer";
-import TagCarousel from "./ui/tags/tagCarousel";
+import { getPosts } from "../lib/getData";
+import PostContainer from "../ui/posts/postContainer";
+import TagCarousel from "../ui/tags/tagCarousel";
 
 export default async function Home() {
   const posts = await getPosts();

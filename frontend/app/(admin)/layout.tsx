@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import "./globals.css";
-import Nav from "./ui/headers/nav";
-import Footer from "./ui/footers/footer";
-import Menu from "./ui/menus/menu";
-import Providers from "./providers";
+import "../globals.css";
+import Nav from "../ui/headers/nav";
+import Footer from "../ui/footers/footer";
+import Providers from "../providers";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -31,7 +30,6 @@ export default function RootLayout({
           </header>
           <div className="flex-grow flex justify-center items-stretch gap-7">
             {children}
-            <Menu />
           </div>
           <div className="lg:mt-16">
             <Footer />
