@@ -24,9 +24,15 @@ router.post("/", checkSchema(loginSchema), async (req, res) => {
   // Find the user with the provided username
   const user = await getUniqueUserId(req, res);
 
+  if (!user) {
+    return res.status(401).json({ error: "Invalid credentials" });
+  }
+
   // Compare the provided password with the hashed password in the database
-  if (!comparePasswords(password, user.password)) {
-    return res.status(401).json({ error: "Invalid creeedentials" });
+  const match = await comparePasswords(password, user.password);
+
+  if (!match) {
+    return res.status(401).json({ error: "Invalid credentials" });
   }
 
   // If match, generate a JWT token and send it to the client

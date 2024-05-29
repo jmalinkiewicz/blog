@@ -27,15 +27,11 @@ async function getUniqueUserId(req, res) {
         id: true,
       },
     });
-    if (!user) {
-      return res.status(401).json({ error: "Invalid credentials" });
-    }
+    req.body.userId = user.id;
+    return user;
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: "Internal server error" });
+    return undefined;
   }
-  req.body.userId = user.id;
-  return user;
 }
 
 function authenticateToken(req, res, next) {
@@ -43,8 +39,6 @@ function authenticateToken(req, res, next) {
   if (!token) {
     return res.status(401).json({ error: "Unauthorized" });
   }
-
-  const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
 
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
     if (err) {
