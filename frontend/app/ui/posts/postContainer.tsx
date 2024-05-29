@@ -4,7 +4,7 @@ import { PostType } from "@/app/lib/definitions";
 import Post from "./post";
 import { useSearchParams } from "next/navigation";
 
-export default function PostContainer({ posts }: { posts: any }) {
+export default function PostContainer({ posts }: { posts: PostType[] }) {
   const searchParams = useSearchParams();
   const tags = searchParams.get("tags")?.split(",") || [];
 

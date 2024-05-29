@@ -28,7 +28,7 @@ export default function LoginForm() {
       if (response.ok) {
         setMessage("Logged in successfully");
         setIsError(false);
-        router.push("/admin");
+        router.push("/dashboard");
       } else {
         setMessage("Invalid username or password");
         setIsError(true);
