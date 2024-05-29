@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 
 app.use(
   cors({
-    origin: "localhost:3000", // Be cautious in production, use specific domains instead of '*'
+    origin: "http://localhost:3000", // Be cautious in production, use specific domains instead of '*'
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true, // Allow credentials (cookies)
