@@ -11,7 +11,7 @@ export default async function Page() {
       <div className="flex w-full mb-4">
         <Link
           className="bg-blue-400 hover:bg-blue-500 px-4 py-1.5 rounded-md text-white"
-          href="#"
+          href="/dashboard/create"
         >
           New Post
         </Link>

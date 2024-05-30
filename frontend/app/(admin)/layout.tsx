@@ -31,9 +31,6 @@ export default function RootLayout({
           <div className="flex-grow flex justify-center items-stretch gap-7">
             {children}
           </div>
-          <div className="lg:mt-16">
-            <Footer />
-          </div>
         </Providers>
       </body>
     </html>
