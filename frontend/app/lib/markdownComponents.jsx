@@ -8,7 +8,7 @@ export const components = {
   },
   p(props) {
     const { node, ...rest } = props;
-    return <p {...rest} className="text-base hyphens-auto"></p>;
+    return <p {...rest} className="hyphens-auto leading-snug"></p>;
   },
   h2(props) {
     const { node, ...rest } = props;
