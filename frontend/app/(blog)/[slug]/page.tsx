@@ -7,9 +7,11 @@ import React from "react";
 import { components } from "../../lib/markdownComponents.jsx";
 
 export async function generateStaticParams() {
-  const posts = await fetch("http://localhost:8000/api/posts").then((res) =>
-    res.json()
-  );
+  const posts = await fetch("http://localhost:8000/api/posts", {
+    next: {
+      tags: ["posts"],
+    },
+  }).then((res) => res.json());
 
   return posts.map((post: PostType) => ({
     slug: post.slug,
@@ -26,6 +28,9 @@ export default async function Page({ params }: { params: any }) {
 
   // Replace all the \n with new lines
   const content = post.content.replace(/\\n/g, "\n");
+  const dateStr = String(new Date(post.publishedOn));
+  const words = dateStr.split(" ");
+  const firstTwoWords = words.slice(1, 3).join(" ");
 
   return (
     <main className="mt-32 max-w-[550px] overflow-hidden flex-grow px-5">
@@ -47,7 +52,7 @@ export default async function Page({ params }: { params: any }) {
             <div className="flex flex-col gap-2">
               <div className="text-[12px] text-shark-500 dark:text-shark-300 flex justify-between">
                 <h4>{post.author.name}</h4>
-                <h4>April 10</h4>
+                <h4>{firstTwoWords}</h4>
               </div>
               <h2 className="text-[24px] font-semibold hover:text-shark-950/80 dark:hover:text-white/85">
                 {post.title}

@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 
 export async function createPost(formData: FormData) {
@@ -22,7 +23,7 @@ export async function createPost(formData: FormData) {
     },
     body: JSON.stringify(rawFormData),
   });
-
+  revalidateTag("posts");
   console.log(await response.json());
 }
 
@@ -34,6 +35,6 @@ export async function deletePost(postId: string) {
       Cookie: `token=${cookies().get("token")?.value}`,
     },
   });
-
+  revalidateTag("posts");
   console.log(await response.json());
 }

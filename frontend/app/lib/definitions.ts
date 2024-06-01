@@ -9,6 +9,7 @@ export type PostType = {
   };
   userId: string;
   slug: string;
+  publishedOn: string;
   tags: string[];
   metaTitle: string;
   metaDescription: string;

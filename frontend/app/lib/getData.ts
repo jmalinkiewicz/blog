@@ -11,7 +11,9 @@
 
 export async function getPosts() {
   const res = await fetch("http://localhost:8000/api/posts", {
-    cache: "no-cache",
+    next: {
+      tags: ["posts"],
+    },
   });
   const data = await res.json();
 
