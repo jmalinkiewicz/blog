@@ -25,3 +25,15 @@ export async function createPost(formData: FormData) {
 
   console.log(await response.json());
 }
+
+export async function deletePost(postId: string) {
+  const response = await fetch(`http://localhost:8000/api/posts/${postId}`, {
+    method: "DELETE",
+    credentials: "include",
+    headers: {
+      Cookie: `token=${cookies().get("token")?.value}`,
+    },
+  });
+
+  console.log(await response.json());
+}
