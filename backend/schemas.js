@@ -40,7 +40,6 @@ const createPostSchema = {
     notEmpty: { errorMessage: "Description can't be empty" },
   },
   content: {
-    escape: true,
     isString: { errorMessage: "Content must be a string" },
     notEmpty: { errorMessage: "Content can't be empty" },
   },
@@ -95,7 +94,6 @@ const editPostSchema = {
     notEmpty: { errorMessage: "Description can't be empty" },
   },
   content: {
-    escape: true,
     isString: { errorMessage: "Content must be a string" },
     notEmpty: { errorMessage: "Content can't be empty" },
   },

@@ -16,7 +16,7 @@ export default function PostManagerCard({ post }: { post: PostType }) {
           <>
             <Link
               className="bg-yellow-300 hover:bg-yellow-400 dark:text-black px-4 py-1.5 rounded-md"
-              href="#"
+              href={`/dashboard/edit/${post.slug}`}
             >
               Edit
             </Link>

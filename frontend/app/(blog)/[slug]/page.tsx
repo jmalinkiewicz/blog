@@ -20,7 +20,6 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: { params: any }) {
   const post = await getPost(params.slug);
-  console.log(post);
 
   if (!post) {
     notFound();

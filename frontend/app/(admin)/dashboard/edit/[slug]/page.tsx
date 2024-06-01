@@ -2,11 +2,13 @@
 
 import { components } from "@/app/lib/markdownComponents";
 import ReactMarkdown from "react-markdown";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Editor } from "@monaco-editor/react";
-import { createPost } from "@/app/actions";
+import { createPost, editPost } from "@/app/actions";
+import { PostType } from "@/app/lib/definitions";
+import { getPost } from "@/app/lib/getData";
 
-export default function Page() {
+export default function Page({ params }: { params: { slug: string } }) {
   const [markdown, setMarkdown] = useState<string | undefined>("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -14,7 +16,22 @@ export default function Page() {
   const [tags, setTags] = useState("");
   const [metaTitle, setMetaTitle] = useState("");
   const [metaDescription, setMetaDescription] = useState("");
+  const [id, setId] = useState("");
 
+  useEffect(() => {
+    const fetchPost = async () => {
+      const post = await getPost(params.slug);
+      setMarkdown(post.content.replace(/\\n/g, "\n"));
+      setTitle(post.title);
+      setDescription(post.description);
+      setThumbnailUrl(post.thumbnailUrl);
+      setTags(post.tags);
+      setMetaTitle(post.metaTitle);
+      setMetaDescription(post.metaDescription);
+      setId(post.id);
+    };
+    fetchPost();
+  }, []);
   return (
     <div className="flex-grow w-full flex pt-32 max-h-screen overflow-hidden">
       <div className="w-1/2 flex flex-col">
@@ -24,7 +41,8 @@ export default function Page() {
             onChange={(value, event) => setMarkdown(value)}
           />
         </div>
-        <form action={createPost} className="max-w-lg">
+        <form action={editPost} className="max-w-lg">
+          <input name="id" value={id} />
           <input name="content" value={markdown?.replace(/\n/g, "\\n")} />
           <label className="flex flex-col">
             <span>Title</span>
