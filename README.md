@@ -17,7 +17,6 @@ Blog app made with Next.js, Node.js, Express.js, JSON Web Token (JWT), PostgreSQ
 * Post's content can be writtien with Markdown, which is then converted to React Components styled with TailwindCSS, ensuring unique look of the blog
 * Posts can be edited
 * Code snippets in blog posts are displayed in a code-editor styled container
-* Project is containerized with Docker for easy deployment and collaboration
 
 ## Tech Stack
 
@@ -29,3 +28,7 @@ Blog app made with Next.js, Node.js, Express.js, JSON Web Token (JWT), PostgreSQ
 * Typescript
 * Json Web Token (JWT)
 * PostgreSQL
+
+## To do
+
+* Containerize
